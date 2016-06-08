@@ -1,0 +1,6 @@
+﻿  VisualGDB: Sending 5 updated source files to build machine...
+  VisualGDB: Run "make CONFIG=Debug" in directory "/tmp/VisualGDB/d/AS-corporation/sound/sound1" on root@192.168.8.205 (SSH)
+  g++ -ggdb -ffunction-sections -O0 -std=c++14  -I/usr/local/ffmpeg/include -DDEBUG  -c alsa.cpp -o Debug/alsa.o -MD -MF Debug/alsa.dep
+  g++ -ggdb -ffunction-sections -O0 -std=c++14  -I/usr/local/ffmpeg/include -DDEBUG  -c decoder.cpp -o Debug/decoder.o -MD -MF Debug/decoder.dep
+  g++ -ggdb -ffunction-sections -O0 -std=c++14  -I/usr/local/ffmpeg/include -DDEBUG  -c main.cpp -o Debug/main.o -MD -MF Debug/main.dep
+  g++ -o Debug/sound1 -Wl,-gc-sections   -L/home/lib -Wl,--start-group Debug/alsa.o Debug/decoder.o Debug/log.o Debug/main.o -lasound -lstdc++ -lavcodec -lavformat -lswresample -lavutil -lavfilter -lpthread  -Wl,--rpath='$ORIGIN'   -Wl,--end-group
